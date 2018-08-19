@@ -4,6 +4,10 @@ Metric Collection / Half Assed Histograms for fitbit os
 Metric collection on a schedule for use in fitbit apps. Historical data is not available using the fitbit api, so here's a half decent attempt.
 
 ```javascript
+const ONE_MINUTE = 60 * 1000
+const FIVE_MINUTES = 5 * ONE_MINUTE
+const TEN_MINUTES = 10 * ONE_MINUTE
+
 let steps = new MetricHistogram('steps', ONE_MINUTE, () => todayActivity.local.steps || 0)
 let elevation = new MetricHistogram('elevationGain', ONE_MINUTE, () => today.local.elevationGain || 0)
 let heartRateMonitor = new HeartRateSensor()
